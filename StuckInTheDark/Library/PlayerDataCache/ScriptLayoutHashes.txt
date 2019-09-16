@@ -1,6 +1,6 @@
-WebGL
+WindowsStandalone
 PlayerPath?
-D:/My Documents/Unity/StuckInTheDark
+D:/My Documents/Unity/StuckInTheDarkStandalone/Stuck In The Dark.exe
 SceneListBegin?
 Assets/_Presentation/Game.unity
 SceneListEnd?
