@@ -25,6 +25,7 @@ public class Flashlight : MonoBehaviour {
 
     public float power;
     private float ttl;
+
     // Use this for initialization
     void Start () {
         aud = GetComponent<AudioSource>();
@@ -35,6 +36,7 @@ public class Flashlight : MonoBehaviour {
         ttl = minEchoTime;
         Cursor.visible = false;
 
+		//ambience
 		float noise1time = Random.Range (10.0f, 20.0f);
 		Invoke ("randomNoise", noise1time);
 		Invoke ("randomNoise2", noise1time + Random.Range (20.0f, 30.0f));
@@ -43,53 +45,62 @@ public class Flashlight : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (batteryInRange)
-            {
-                addBattery();
-                selectedBattery.GetComponent<BatteryBehaviour>().deleteThis();
-                selectedBattery = null;
-                batteryInRange = false;
-            }
-            if (keyInRange)
-            {
-                addKey();
-                selectedKey.GetComponent<KeyBehaviour>().deleteThis();
-                selectedKey = null;
-                keyInRange = false;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.E) && power > 0) {
-            if (lightOn) {
-                lightOn = false;
-            }
-            if (ttl > minEchoTime) {
-                echolocator.pulse();
-                power -= 25;
-                aud.PlayOneShot(pulseClip);
-                ttl = 0;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Q) && power > 0) {
-            if (ttl > switchTime && !lightOn) lightOn = true;
-            else lightOn = false;
-        }
-        if (lightOn)
-        {
-            flash.enabled = true;
-            power -= decayRate * Time.deltaTime;
-        }
-        else {
-            flash.enabled = false;
-        }
-        if (power < 0)
-        {
-            lightOn = false;
-            flash.enabled = false;
-        }
-        ttl += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
+		//unpaused
+		if (Time.timeScale != 0) {
+			if (Input.GetKeyDown (KeyCode.Space)) {
+				if (batteryInRange) {
+					addBattery ();
+					selectedBattery.GetComponent<BatteryBehaviour> ().deleteThis ();
+					selectedBattery = null;
+					batteryInRange = false;
+				}
+				if (keyInRange) {
+					addKey ();
+					selectedKey.GetComponent<KeyBehaviour> ().deleteThis ();
+					selectedKey = null;
+					keyInRange = false;
+				}
+			}
+			if (Input.GetKeyDown (KeyCode.E) && power > 0) {
+				if (lightOn) {
+					lightOn = false;
+				}
+				if (ttl > minEchoTime) {
+					echolocator.pulse ();
+					power -= 25;
+					aud.PlayOneShot (pulseClip);
+					ttl = 0;
+				}
+			}
+			if (Input.GetKeyDown (KeyCode.Q) && power > 0) {
+				if (ttl > switchTime && !lightOn)
+					lightOn = true;
+				else
+					lightOn = false;
+			}
+			if (lightOn) {
+				flash.enabled = true;
+				power -= decayRate * Time.deltaTime;
+			} else {
+				flash.enabled = false;
+			}
+			if (power < 0) {
+				lightOn = false;
+				flash.enabled = false;
+			}
+		}
+        
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			if (Time.timeScale != 0) {
+				Time.timeScale = 0;
+				Cursor.visible = true;
+			} else {
+				Time.timeScale = 1;
+				Cursor.visible = false;
+			}
+		}
+
+		ttl += Time.deltaTime;
     }
     public void addKey()
     {

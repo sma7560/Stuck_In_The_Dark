@@ -14,20 +14,25 @@ public class UIPower : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		try{
-			float p = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Flashlight>().power;
-			text.text = "ENERGY: " + Mathf.RoundToInt(p);
+		if (Time.timeScale == 0)
+			text.text = "";
+		else if (Time.timeScale == 1) {
 
-			if(p >= 75){
-				text.color = Color.green;
-			}else if(p > 25){
-				text.color = Color.yellow;
-			}else{
-				text.color = Color.red;
+			try {
+				float p = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Flashlight> ().power;
+				text.text = "ENERGY: " + Mathf.RoundToInt (p);
+
+				if (p >= 75) {
+					text.color = Color.green;
+				} else if (p > 25) {
+					text.color = Color.yellow;
+				} else {
+					text.color = Color.red;
+				}
+
+			} catch (System.NullReferenceException) {		//player is dead
+				gameObject.SetActive (false);
 			}
-
-		}catch(System.NullReferenceException){		//player is dead
-			gameObject.SetActive(false);
 		}
 	}
 }
