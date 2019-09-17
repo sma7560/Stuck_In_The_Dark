@@ -19,20 +19,24 @@ public class UIKey : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		try{
-			if(!player.GetComponent<Flashlight>().wonGame){
-				k = player.GetComponent<Flashlight>().keysCollected;
-				km = player.GetComponent<Flashlight>().keysRequired;
-				text.text = "KEYS: " + k + "/" + km;
+		if (Time.timeScale == 0)
+			text.text = "";
+		else if (Time.timeScale == 1) {
+			try {
+				if (!player.GetComponent<Flashlight> ().wonGame) {
+					k = player.GetComponent<Flashlight> ().keysCollected;
+					km = player.GetComponent<Flashlight> ().keysRequired;
+					text.text = "KEYS: " + k + "/" + km;
 
-				if(k >= km){
-					text.color = Color.green;
+					if (k >= km) {
+						text.color = Color.green;
+					}
+				} else {
+					text.text = "YOU WIN";
 				}
-			}else{
-				text.text = "YOU WIN";
+			} catch (System.NullReferenceException) {		//player is dead
+				gameObject.SetActive (false);
 			}
-		}catch(System.NullReferenceException){		//player is dead
-			gameObject.SetActive(false);
 		}
 	}
 }
