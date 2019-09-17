@@ -90,7 +90,7 @@ public class Flashlight : MonoBehaviour {
 			}
 		}
         
-		if (Input.GetKeyDown (KeyCode.Escape)) {
+		if (Input.GetKeyDown (KeyCode.P)) {
 			if (Time.timeScale != 0) {
 				Time.timeScale = 0;
 				Cursor.visible = true;
