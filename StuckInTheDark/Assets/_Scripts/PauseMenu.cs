@@ -7,20 +7,20 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour {
 
 	private GameObject[] elements;
+	private Canvas pause;
 
 	// Use this for initialization
 	void Start () {
-		elements = GameObject.FindGameObjectsWithTag ("pause");
+		pause = GetComponent<Canvas> ();
+		pause.enabled = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Time.timeScale == 1) {
-			foreach (GameObject a in elements)
-				a.SetActive (false);
+			pause.enabled = false;
 		} else {
-			foreach (GameObject a in elements)
-				a.SetActive (true);
+			pause.enabled = true;
 		}
 	}
 
