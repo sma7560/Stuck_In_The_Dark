@@ -21,8 +21,10 @@ public class UIPickup : MonoBehaviour {
 		else if (Time.timeScale == 1) {
 			if (player.GetComponent<Flashlight> ().batteryInRange) 
 				text.text = "PRESS SPACE TO PICKUP BATTERY";
-			 else if(player.GetComponent<Flashlight> ().keyInRange)
+			else if(player.GetComponent<Flashlight> ().keyInRange)
 				text.text = "PRESS SPACE TO PICKUP KEY";
+			else
+				text.text = "";
 		}
 	}
 }
