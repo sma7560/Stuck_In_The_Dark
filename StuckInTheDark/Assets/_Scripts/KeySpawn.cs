@@ -5,7 +5,7 @@ using UnityEngine;
 public class KeySpawn : MonoBehaviour {
 
 	GameObject[] keyspawnlocations;
-	Color[] keyColours = {Color.black, Color.black, Color.black };
+	Color[] keyColours = {Color.red, Color.green, Color.blue };
 
 	public GameObject key;
 
