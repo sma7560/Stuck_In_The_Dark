@@ -46,7 +46,7 @@ public class BaseAi : MonoBehaviour {
     void OnTriggerEnter(Collider col){
 		if (col.transform.tag == "MainCamera") {
 			aud.PlayOneShot (attack);
-
+			GetComponent<MonsterMove> ().attack ();
 			StartCoroutine (PlayerDeath());
 		}
 

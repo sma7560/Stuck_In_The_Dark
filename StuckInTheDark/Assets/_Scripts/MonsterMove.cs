@@ -26,4 +26,9 @@ public class MonsterMove : MonoBehaviour {
         z = transform.position.z;
 
     }
+
+	public void attack(){
+
+		anim.SetTrigger ("playerClose");
+	}
 }
