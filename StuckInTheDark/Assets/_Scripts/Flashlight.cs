@@ -44,7 +44,7 @@ public class Flashlight : MonoBehaviour {
 		endscreen = GameObject.FindGameObjectWithTag ("stats").GetComponent<Stats> ();
 
 		//ambience
-		float noise1time = Random.Range (10.0f, 20.0f);
+		float noise1time = Random.Range (10.0f, 50.0f);
 		Invoke ("randomNoise", noise1time);
 		Invoke ("randomNoise2", noise1time + Random.Range (20.0f, 30.0f));
 
