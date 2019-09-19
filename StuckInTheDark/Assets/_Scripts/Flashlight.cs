@@ -8,7 +8,7 @@ public class Flashlight : MonoBehaviour {
     public int keysRequired = 3;
     public int keysCollected;
     public bool exitReady;
-    public AudioClip batteryPickupFX, keyPickupFX, pulseClip;
+    public AudioClip batteryPickupFX, keyPickupFX, pulseClip, winFX, deathFX, defeatFX;
     AudioSource aud;
     public bool batteryInRange = false, keyInRange = false;
 
@@ -20,11 +20,15 @@ public class Flashlight : MonoBehaviour {
     Collider selectedKey, selectedBattery;
 
 	public bool wonGame = false;
+	public bool alive = true;
 
 	public AudioClip noise1, noise2;
 
     public float power;
+	private int batteryCount;
     private float ttl;
+
+	private GameEnd endscreen;
 
     // Use this for initialization
     void Start () {
@@ -33,8 +37,11 @@ public class Flashlight : MonoBehaviour {
         keysCollected = 0;
         exitReady = false;
         power = maxPower;
+		batteryCount = 0;
         ttl = minEchoTime;
         Cursor.visible = false;
+
+		endscreen = GameObject.FindGameObjectWithTag ("gameEnd").GetComponent<GameEnd> ();
 
 		//ambience
 		float noise1time = Random.Range (10.0f, 20.0f);
@@ -102,6 +109,7 @@ public class Flashlight : MonoBehaviour {
 
 		ttl += Time.deltaTime;
     }
+
     public void addKey()
     {
         aud.PlayOneShot(keyPickupFX);
@@ -112,12 +120,13 @@ public class Flashlight : MonoBehaviour {
 
     public void addBattery()
     {
+		batteryCount++;
         aud.PlayOneShot(batteryPickupFX);
         power += 20;
     }
+
     void OnTriggerEnter(Collider col)
     {
-
         switch (col.tag)
         {
         case "Battery":
@@ -130,10 +139,15 @@ public class Flashlight : MonoBehaviour {
             break;
 		case "exit":
 			if (exitReady)
-				win ();
+				GameObject.FindGameObjectWithTag ("door").GetComponent<ExitDoor> ().open ();
+			break;
+		case "win":
+			if (exitReady)
+				win();
 			break;
         }
     }
+
     void OnTriggerExit(Collider col)
     {
         switch (col.tag)
@@ -149,9 +163,25 @@ public class Flashlight : MonoBehaviour {
         }
     }
 
-	public void win(){
+	void win(){
 		wonGame = true;
-        Application.Quit();
+
+		Time.timeScale = 0;
+
+		aud.Stop ();
+		aud.PlayOneShot (winFX);
+
+
+		endscreen.displayStats (Time.fixedTime, Mathf.RoundToInt(power), batteryCount, alive);
+	}
+
+	public void dead(){
+		alive = false;
+		aud.PlayOneShot (deathFX);
+		//aud.Stop ();
+		aud.PlayOneShot (defeatFX);
+		Time.timeScale = 0;
+		endscreen.displayStats (Time.fixedTime, Mathf.RoundToInt(power), batteryCount, alive);
 	}
 
 	void randomNoise(){

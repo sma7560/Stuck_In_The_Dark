@@ -12,6 +12,7 @@ public class BaseAi : MonoBehaviour {
     public Transform me;
     private NavMeshAgent navComponent;
     public AudioSource aud;
+	private Flashlight player;
 
 	public AudioClip attack;
 	public AudioClip playerdeathfx;
@@ -21,6 +22,8 @@ public class BaseAi : MonoBehaviour {
         navComponent = this.gameObject.GetComponent<NavMeshAgent>();
         aud = GetComponent<AudioSource>();
         aud.Play();
+
+		player = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Flashlight>();
     }
 	
 	// Update is called once per frame
@@ -53,11 +56,7 @@ public class BaseAi : MonoBehaviour {
     }
 
 	IEnumerator PlayerDeath(){
-		yield return new WaitForSeconds(0.5f); // wait time
-		aud.PlayOneShot (playerdeathfx);
-		yield return new WaitForSeconds(0.5f); // wait time
-
-		Scene scene = SceneManager.GetActiveScene ();
-		SceneManager.LoadScene (scene.name);
+		yield return new WaitForSeconds(0.5f); // wait time for audio to play
+		player.dead();
 	}
 }
