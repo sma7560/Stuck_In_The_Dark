@@ -7,8 +7,11 @@ Playable at https://jollygoodfellow.itch.io/stuck-in-the-dark
 ### 3rd Party Asset Packs used:
 
 [Character Monster][14] 1 by Solum Knight
+
 [Free Horror Game Kit][15] by Two TV Game Studio
+
 [Hospital Horror Pack][16] by FoeJofMay
+
 [NoMansScanner][17] by Broxxar
 
 ### Audio Assets used under [Creative Commons Attribution License][0]:
