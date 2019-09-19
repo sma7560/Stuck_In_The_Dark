@@ -64,7 +64,7 @@ public class Stats : MonoBehaviour {
 				PlayerPrefs.SetInt ("hiscoreB", endBatteries);
 				bestB = currB + " (New Record!)";
 			}
-			if (time < hiscoreT || hiscoreT >=0) {
+			if (time < hiscoreT || hiscoreT <=0) {
 				PlayerPrefs.SetFloat ("hiscoreT", time);
 				bestT = currT + " (New Record!)";
 			}
