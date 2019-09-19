@@ -97,7 +97,7 @@ public class Flashlight : MonoBehaviour {
 			}
 		}
         
-		if (Input.GetKeyDown (KeyCode.P)) {
+		if (Input.GetKeyDown (KeyCode.P) && alive && !wonGame) {
 			if (Time.timeScale != 0) {
 				Time.timeScale = 0;
 				Cursor.visible = true;
@@ -165,6 +165,7 @@ public class Flashlight : MonoBehaviour {
 
 	void win(){
 		wonGame = true;
+		Cursor.visible = true;
 
 		Time.timeScale = 0;
 
@@ -176,6 +177,7 @@ public class Flashlight : MonoBehaviour {
 	}
 
 	public void dead(){
+		Cursor.visible = true;
 		alive = false;
 		aud.PlayOneShot (deathFX);
 		//aud.Stop ();
