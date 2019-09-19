@@ -28,7 +28,7 @@ public class Flashlight : MonoBehaviour {
 	private int batteryCount;
     private float ttl;
 
-	private GameEnd endscreen;
+	private Stats endscreen;
 
     // Use this for initialization
     void Start () {
@@ -41,7 +41,7 @@ public class Flashlight : MonoBehaviour {
         ttl = minEchoTime;
         Cursor.visible = false;
 
-		endscreen = GameObject.FindGameObjectWithTag ("gameEnd").GetComponent<GameEnd> ();
+		endscreen = GameObject.FindGameObjectWithTag ("stats").GetComponent<Stats> ();
 
 		//ambience
 		float noise1time = Random.Range (10.0f, 20.0f);
