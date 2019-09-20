@@ -27,7 +27,7 @@ public class Stats : MonoBehaviour {
 		end.enabled = false;
 
 		defeat = new Color(178/255f, 1/255f, 1/255f, 100/255f);
-		victory = new Color(1/255f, 1f, 1/255f, 100/255f);
+		victory = new Color(60/255f, 1f, 60/255f, 100/255f);
 	}
 
 	// Update is called once per frame
