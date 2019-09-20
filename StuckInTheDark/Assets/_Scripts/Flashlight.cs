@@ -23,6 +23,7 @@ public class Flashlight : MonoBehaviour {
 	public bool alive = true;
 
 	public AudioClip noise1, noise2;
+	int order;
 
     public float power;
 	private int batteryCount;
@@ -45,6 +46,10 @@ public class Flashlight : MonoBehaviour {
 
 		//ambience
 		float noise1time = Random.Range (10.0f, 50.0f);
+
+		//determine which to play first
+		order = Random.Range(0, 2);
+
 		Invoke ("randomNoise", noise1time);
 		Invoke ("randomNoise2", noise1time + Random.Range (20.0f, 30.0f));
 
@@ -187,10 +192,17 @@ public class Flashlight : MonoBehaviour {
 	}
 
 	void randomNoise(){
-		aud.PlayOneShot (noise1);
+		if(order == 0)
+			aud.PlayOneShot (noise1);
+		else
+			aud.PlayOneShot (noise2);
 	}
 
 	void randomNoise2(){
-		aud.PlayOneShot (noise2);
+		if(order == 0)
+			aud.PlayOneShot (noise2);
+		else
+			aud.PlayOneShot (noise2);
+		
 	}
 }
