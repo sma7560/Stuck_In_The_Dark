@@ -9,11 +9,11 @@ public class UIKey : MonoBehaviour {
 
 	private int k, km;
 
-	private GameObject player;
+	private Flashlight player;
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindGameObjectWithTag ("MainCamera");
+		player = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Flashlight>();
 		text = GetComponent<Text> ();
 	}
 
@@ -23,9 +23,9 @@ public class UIKey : MonoBehaviour {
 			text.text = "";
 		else if (Time.timeScale == 1) {
 			try {
-				if (!player.GetComponent<Flashlight> ().wonGame) {
-					k = player.GetComponent<Flashlight> ().keysCollected;
-					km = player.GetComponent<Flashlight> ().keysRequired;
+				if (!player.wonGame) {
+					k = player.keysCollected;
+					km = player.keysRequired;
 					text.text = "KEYS: " + k + "/" + km;
 
 					if (k >= km) {

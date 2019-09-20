@@ -27,7 +27,7 @@ public class Flashlight : MonoBehaviour {
 
     public float power;
 	private int batteryCount;
-    private float ttl;
+    public float ttl;
 
 	private Stats endscreen;
 
@@ -39,8 +39,11 @@ public class Flashlight : MonoBehaviour {
         exitReady = false;
         power = maxPower;
 		batteryCount = 0;
+		minEchoTime = 9;
+
         ttl = minEchoTime;
         Cursor.visible = false;
+		decayRate = 3;
 
 		endscreen = GameObject.FindGameObjectWithTag ("stats").GetComponent<Stats> ();
 
@@ -79,7 +82,7 @@ public class Flashlight : MonoBehaviour {
 				}
 				if (ttl > minEchoTime) {
 					echolocator.pulse ();
-					power -= 25;
+					//power -= 25;
 					aud.PlayOneShot (pulseClip);
 					ttl = 0;
 				}
@@ -127,7 +130,7 @@ public class Flashlight : MonoBehaviour {
     {
 		batteryCount++;
         aud.PlayOneShot(batteryPickupFX);
-        power += 20;
+        power += 10;
     }
 
     void OnTriggerEnter(Collider col)

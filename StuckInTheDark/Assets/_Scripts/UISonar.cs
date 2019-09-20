@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIPower : MonoBehaviour {
+public class UISonar : MonoBehaviour {
 
 	private Text text;
 	private Flashlight player;
@@ -21,15 +21,15 @@ public class UIPower : MonoBehaviour {
 		else if (Time.timeScale == 1) {
 
 			try {
-				float p = player.power;
-				text.text = "ENERGY: " + Mathf.RoundToInt (p);
+				float ttl = player.ttl;
+				float minEchoTime = player.minEchoTime;
 
-				if (p >= 75) {
+				if(ttl > minEchoTime){
 					text.color = Color.green;
-				} else if (p > 25) {
-					text.color = Color.yellow;
-				} else {
+					text.text = "SONAR: READY";
+				}else{
 					text.color = Color.red;
+					text.text = "SONAR: " + Mathf.RoundToInt (minEchoTime - ttl + 1) + "s";
 				}
 
 			} catch (System.NullReferenceException) {		//player is dead

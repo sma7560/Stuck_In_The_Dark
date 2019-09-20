@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class UIPickup : MonoBehaviour {
 
-	private GameObject player;
 	private Text text;
+	private Flashlight player;
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindGameObjectWithTag ("MainCamera");
+		player = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Flashlight>();
 		text = GetComponent<Text> ();
 	}
 	
@@ -19,9 +19,9 @@ public class UIPickup : MonoBehaviour {
 		if (Time.timeScale == 0)
 			text.text = "";
 		else if (Time.timeScale == 1) {
-			if (player.GetComponent<Flashlight> ().batteryInRange) 
+			if (player.batteryInRange) 
 				text.text = "PRESS SPACE TO PICKUP BATTERY";
-			else if(player.GetComponent<Flashlight> ().keyInRange)
+			else if(player.keyInRange)
 				text.text = "PRESS SPACE TO PICKUP KEY";
 			else
 				text.text = "";
