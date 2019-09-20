@@ -87,4 +87,16 @@ public class Stats : MonoBehaviour {
 
 		return new int[] {minutes, seconds};
 	}
+
+	public void resetStats(){
+		PlayerPrefs.DeleteKey ("hiscoreP");
+		PlayerPrefs.DeleteKey ("hiscoreB");
+		PlayerPrefs.DeleteKey ("hiscoreT");
+
+		int hiscoreP = PlayerPrefs.GetInt ("hiscoreP", 0);
+		int hiscoreB = PlayerPrefs.GetInt ("hiscoreB", 0);
+		float hiscoreT = PlayerPrefs.GetFloat ("hiscoreT", 0f);
+
+		bestStats.text = "Personal Bests\n" + hiscoreT.ToString() + "\n" + hiscoreP.ToString() + "\n" + hiscoreB.ToString();
+	}
 }
