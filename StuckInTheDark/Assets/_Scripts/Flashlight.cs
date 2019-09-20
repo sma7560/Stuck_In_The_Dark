@@ -39,9 +39,9 @@ public class Flashlight : MonoBehaviour {
         exitReady = false;
         power = maxPower;
 		batteryCount = 0;
-		minEchoTime = 9;
+		minEchoTime = 10;			//sonar cooldown in seconds
 
-        ttl = minEchoTime;
+        ttl = minEchoTime;			//sonar cooldown timer
         Cursor.visible = false;
 		decayRate = 3;
 
@@ -84,7 +84,7 @@ public class Flashlight : MonoBehaviour {
 					echolocator.pulse ();
 					//power -= 25;
 					aud.PlayOneShot (pulseClip);
-					ttl = 0;
+					ttl = 1;
 				}
 			}
 			if (Input.GetKeyDown (KeyCode.Q) && power > 0) {
