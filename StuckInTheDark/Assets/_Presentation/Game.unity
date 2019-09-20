@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.025
   m_CustomReflection: {fileID: 8900000, guid: b995d4bd9d11078d11005b9844295342, type: 3}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.03708112, g: 0.038685028, b: 0.034159463, a: 0.025}
+  m_IndirectSpecularColor: {r: 0.0031829372, g: 0.0033536893, b: 0.0030269676, a: 0.025}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -17044,7 +17044,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 20
+  m_Intensity: 3
   m_Range: 7.5
   m_SpotAngle: 70
   m_CookieSize: 10
@@ -20168,7 +20168,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 8
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 39
   m_CookieSize: 10
@@ -22967,7 +22967,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 8
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 39
   m_CookieSize: 10
@@ -25607,7 +25607,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5
+  m_Intensity: 3
   m_Range: 15
   m_SpotAngle: 88
   m_CookieSize: 10
@@ -33675,7 +33675,7 @@ GameObject:
   - component: {fileID: 1827746711}
   - component: {fileID: 2143466662}
   m_Layer: 0
-  m_Name: Spotlight
+  m_Name: Flashlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39431,7 +39431,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10
+  m_Intensity: 3
   m_Range: 7.5
   m_SpotAngle: 96
   m_CookieSize: 10
@@ -39826,7 +39826,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 0.8602941, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1.5
   m_Range: 85
   m_SpotAngle: 50
   m_CookieSize: 10
