@@ -105,7 +105,7 @@ public class Flashlight : MonoBehaviour {
 			}
 		}
         
-		if (Input.GetKeyDown (KeyCode.P) && alive && !wonGame) {
+		if ((Input.GetKeyDown (KeyCode.P) || Input.GetKeyDown (KeyCode.Escape)) && alive && !wonGame) {
 			if (Time.timeScale != 0) {
 				Time.timeScale = 0;
 				Cursor.visible = true;
