@@ -76,7 +76,7 @@ public class Flashlight : MonoBehaviour {
 					keyInRange = false;
 				}
 			}
-			if (Input.GetKeyDown (KeyCode.E) && power > 0) {
+			if (Input.GetKeyDown (KeyCode.E)) {
 				if (lightOn) {
 					lightOn = false;
 				}
