@@ -4,6 +4,8 @@ A short Unity horror game made by Ethan Chan, Simon Ma, and Rehan Theiveehathasa
 
 Playable at https://jollygoodfellow.itch.io/stuck-in-the-dark
 
+![Banner](img/Cover.png?raw=true)
+
 ### 3rd Party Asset Packs used:
 
 [Character Monster][14] 1 by Solum Knight
