@@ -190,6 +190,7 @@ public class Flashlight : MonoBehaviour {
 
 	public void dead(){
 		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.None;
 		alive = false;
 		aud.PlayOneShot (deathFX);
 		//aud.Stop ();
