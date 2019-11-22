@@ -43,6 +43,7 @@ public class Flashlight : MonoBehaviour {
 
         ttl = minEchoTime;			//sonar cooldown timer
         Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
 		decayRate = 3;
 
 		endscreen = GameObject.FindGameObjectWithTag ("stats").GetComponent<Stats> ();
@@ -109,9 +110,11 @@ public class Flashlight : MonoBehaviour {
 			if (Time.timeScale != 0) {
 				Time.timeScale = 0;
 				Cursor.visible = true;
+				Cursor.lockState = CursorLockMode.None;
 			} else {
 				Time.timeScale = 1;
 				Cursor.visible = false;
+				Cursor.lockState = CursorLockMode.Locked;
 			}
 		}
 
@@ -174,6 +177,7 @@ public class Flashlight : MonoBehaviour {
 	void win(){
 		wonGame = true;
 		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.None;
 
 		Time.timeScale = 0;
 
