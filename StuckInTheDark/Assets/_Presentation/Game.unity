@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.025
   m_CustomReflection: {fileID: 8900000, guid: b995d4bd9d11078d11005b9844295342, type: 3}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0.025}
+  m_IndirectSpecularColor: {r: 0.0031829372, g: 0.0033536893, b: 0.0030269676, a: 0.025}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -30668,7 +30668,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RESET
+  m_Text: RESET STATS
 --- !u!222 &1665863652
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -35958,7 +35958,7 @@ GameObject:
   - component: {fileID: 1948263011}
   - component: {fileID: 1948263010}
   m_Layer: 0
-  m_Name: Quit
+  m_Name: Reset
   m_TagString: pause
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
