@@ -44,7 +44,7 @@ public class Flashlight : MonoBehaviour {
         ttl = minEchoTime;			//sonar cooldown timer
         Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
-		decayRate = 3;
+		decayRate = 2;
 
 		endscreen = GameObject.FindGameObjectWithTag ("stats").GetComponent<Stats> ();
 
@@ -77,7 +77,7 @@ public class Flashlight : MonoBehaviour {
 					keyInRange = false;
 				}
 			}
-			if (Input.GetKeyDown (KeyCode.E)) {
+			if (Input.GetKeyDown (KeyCode.Q)) {
 				if (lightOn) {
 					lightOn = false;
 				}
@@ -88,7 +88,7 @@ public class Flashlight : MonoBehaviour {
 					ttl = 1;
 				}
 			}
-			if (Input.GetKeyDown (KeyCode.Q) && power > 0) {
+			if (Input.GetKeyDown (KeyCode.F) && power > 0) {
 				if (ttl > switchTime && !lightOn)
 					lightOn = true;
 				else
@@ -133,7 +133,7 @@ public class Flashlight : MonoBehaviour {
     {
 		batteryCount++;
         aud.PlayOneShot(batteryPickupFX);
-        power += 10;
+        power += 12;
     }
 
     void OnTriggerEnter(Collider col)

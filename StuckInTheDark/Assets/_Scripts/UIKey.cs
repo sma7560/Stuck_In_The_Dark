@@ -30,6 +30,7 @@ public class UIKey : MonoBehaviour {
 
 					if (k >= km) {
 						text.color = Color.green;
+						text.text = "KEYS: " + k + "/" + km + " GET TO THE EXIT!";
 					}
 				} else {
 					text.text = "YOU WIN";
